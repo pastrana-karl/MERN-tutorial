@@ -9,7 +9,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
           {user ? <Home /> : <Register />}
         </Route>
 
-        <Route path = "/post/:postid">
+        <Route path = "/post/:postId">
           <Single />
         </Route>
       </Switch>
