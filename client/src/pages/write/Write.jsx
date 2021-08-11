@@ -22,10 +22,12 @@ export default function Write() {
             const filename = Date.now() + file.name;
             data.append("name", filename);
             data.append("file", file);
-            newPost.photo = filename;
+            data.append("upload_preset", "dev_prac");
+            data.append("cloud_name", "karlstorage");
 
             try {
-                await axios.post("/upload", data);
+                const res = await axios.post("https://api.cloudinary.com/v1_1/karlstorage/image/upload", data);
+                newPost.photo = res.data.secure_url;
             } catch (err) {
 
             }
@@ -35,7 +37,7 @@ export default function Write() {
             const res = await axios.post("/posts", newPost);
             window.location.replace("/post/" + res.data._id);
         } catch (err) {
-
+            console.log(err)
         }
     };
     return (
