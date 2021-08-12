@@ -5,6 +5,7 @@ import Write from './pages/write/Write'
 import Settings from './pages/settings/Settings'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
+import Reset from './pages/reset/Reset'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +14,7 @@ import {
 } from "react-router-dom";
 import { useContext } from 'react'
 import { Context } from './context/Context'
+import Password from './pages/change/Password'
 
 function App() {
   const { user } = useContext(Context);
@@ -46,6 +48,14 @@ function App() {
 
         <Route path = "/post/:postId">
           <Single />
+        </Route>
+
+        <Route exact path = "/Reset">
+          {user ? <Home /> : <Reset />}
+        </Route>
+
+        <Route path = "/Reset/:token">
+          {user ? <Home /> : <Password />}
         </Route>
       </Switch>
     </Router>

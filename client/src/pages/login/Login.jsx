@@ -37,6 +37,8 @@ export default function Login() {
                 <button className = "loginButton" type = "submit" disabled = {isFetching}>Log In</button>
             </form>
 
+            <button className = "loginForgotButton"><Link to = "/reset" className = "link" >Forgot Password?</Link></button>
+
             <button className = "loginRegisterButton" ><Link to = "/register" className = "link" >Register</Link></button>
         </div>
     )
